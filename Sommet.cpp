@@ -71,13 +71,13 @@ void Sommet::update()
             m_selec.set_bg_color(MARRONCLAIR);
         }
     }
-    m_x=m_box.get_posx();
-    if(m_x<200)
-    {
-        m_x=200;
-        m_box.set_posx(200);
-    }
     m_y=m_box.get_posy();
+    if(m_y<110)
+    {
+        m_y=110;
+        m_box.set_posy(110);
+    }
+    m_x=m_box.get_posx();
 }
 grman::WidgetBox& Sommet::get_box()
 {

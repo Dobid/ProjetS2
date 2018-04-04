@@ -18,12 +18,15 @@ int main()
     charger.set_frame(303,649,411,76);
 
     grman::WidgetImage image_fond;
+    grman::WidgetClavier Clavier;
     //grman::WidgetImage image_nouveau;
     //grman::WidgetImage image_charger;
 
     menu_fond.add_child(image_fond);
     menu_fond.add_child(nouveau);
     menu_fond.add_child(charger);
+    menu_fond.add_child(Clavier);
+
 
     //image_fond.set_gravity_xy(grman::GravityX::Left,grman::GravityY::Up);
     image_fond.set_pic_name("fond.jpg");
@@ -44,7 +47,14 @@ int main()
             {
                 ok=1;
                 cout<<"nom du nouveau graphe?"<<endl;
-                cin>>fichier;
+                Clavier.initialiser();
+                while(Clavier.bloque()!=1)
+                {
+                    menu_fond.update();
+                    Clavier.update();
+                    grman::mettre_a_jour();
+                }
+                fichier=Clavier.recup_chaine();
                 fichier+=".txt";
                 std::ofstream fic(fichier,ios::out);
                 fic<<"0"<<endl<<"0";
@@ -53,7 +63,14 @@ int main()
             if(charger.clicked())
             {
                 cout<<"nom du graphe a charger?"<<endl;
-                cin>>fichier;
+                Clavier.initialiser();
+                while(Clavier.bloque()!=1)
+                {
+                    menu_fond.update();
+                    Clavier.update();
+                    grman::mettre_a_jour();
+                }
+                fichier=Clavier.recup_chaine();
                 fichier+=".txt";
                 ok=1;
             }

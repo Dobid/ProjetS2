@@ -1,8 +1,8 @@
 4
-lion lion.jpg 1 552 265 5
-singe singe.jpg 0 678 533 71
-lion lion.jpg 1 682 262 26
-lion lion.jpg 1 815 260 100
+lion lion.jpg 1 718 334 0
+singe singe.jpg 0 443 284 23
+lion lion.jpg 1 443 457 100
+lion lion.jpg 1 446 148 86
 2
 1 2
 3 1

@@ -398,7 +398,6 @@ struct ArrowItem
     ArrowItem(ArrowItemType type, double position, double size=14.0, double proportion=0.5) :
         m_type(type), m_position(position), m_size(size), m_proportion(proportion) {}
 };
-
 class WidgetEdge : public Widget
 {
     protected :
@@ -442,6 +441,24 @@ class WidgetEdge : public Widget
 
         void set_children_position(double rel_pos) { m_children_position = rel_pos; }
         void set_children_lateral(double abs_lat) { m_children_lateral = abs_lat; }
+};
+/***************************************************
+                    Clavier
+****************************************************/
+class WidgetClavier : public Widget
+{
+    protected :
+        WidgetBox box;
+        WidgetText text;
+        std::string chaine;
+        int m_bloque;
+        std::vector<std::string> prec;
+    public :
+        void initialiser();
+        std::string recup_chaine();
+        virtual void draw();
+        int bloque(){return m_bloque;}
+
 };
 
 

@@ -259,7 +259,7 @@
 	"grman/grman.h"
 	<iostream>
 
-1522863962 source:c:\users\david\projet-sem2\graphe.cpp
+1522865215 source:c:\users\david\projet-sem2\graphe.cpp
 	"Graphe.h"
 
 1522863475 c:\users\david\projet-sem2\graphe.h
@@ -296,6 +296,78 @@
 	<fstream>
 
 1522787204 source:c:\users\david\projet-sem2\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1522865835 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\arete.cpp
+	"Arete.h"
+
+1522865835 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522797827 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522797827 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\grman_couleurs.h
+
+1522797827 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\coords.h
+	<cmath>
+
+1522863021 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522865835 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522868080 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\graphe.cpp
+	"Graphe.h"
+
+1522865835 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522797827 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\coords.cpp
+	"coords.h"
+
+1522797827 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522864685 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\widget.cpp
+	"widget.h"
+
+1522862752 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522868100 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\sommet.cpp
 	"Sommet.h"
 	"string"
 
