@@ -451,10 +451,10 @@ class WidgetClavier : public Widget
         WidgetBox box;
         WidgetText text;
         std::string chaine;
-        int m_bloque;
+        int m_bloque = 1;
         std::vector<std::string> prec;
     public :
-        void initialiser();
+        void initialiser(int x, int y);
         std::string recup_chaine();
         virtual void draw();
         int bloque(){return m_bloque;}

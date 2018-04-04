@@ -371,3 +371,75 @@
 	"Sommet.h"
 	"string"
 
+1522858265 source:c:\users\david\projets2\arete.cpp
+	"Arete.h"
+
+1522787204 c:\users\david\projets2\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522869988 c:\users\david\projets2\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522869988 c:\users\david\projets2\grman\grman_couleurs.h
+
+1522869988 c:\users\david\projets2\grman\coords.h
+	<cmath>
+
+1522872984 c:\users\david\projets2\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522787204 c:\users\david\projets2\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522873780 source:c:\users\david\projets2\graphe.cpp
+	"Graphe.h"
+
+1522871934 c:\users\david\projets2\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522869988 source:c:\users\david\projets2\grman\coords.cpp
+	"coords.h"
+
+1522869988 source:c:\users\david\projets2\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522872563 source:c:\users\david\projets2\grman\widget.cpp
+	"widget.h"
+
+1522872761 source:c:\users\david\projets2\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522869988 source:c:\users\david\projets2\sommet.cpp
+	"Sommet.h"
+	"string"
+

@@ -26,8 +26,12 @@ class Graphe
         grman::WidgetButton m_bouton_add_sommet;
         grman::WidgetButton m_bouton_add_arete;
         grman::WidgetImage m_fond_image;
+        grman::WidgetClavier m_clavier;
 
+        bool ifrecup;
         std::string m_fichier;
+        std::string str;
+        std::string image;
         std::vector<Sommet*> Sommets;
         std::vector<Arete*> Aretes;
 };

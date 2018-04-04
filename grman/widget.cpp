@@ -407,15 +407,15 @@ void WidgetEdge::draw()
 /***************************************************
                     Clavier
 ****************************************************/
-void WidgetClavier::initialiser()
+void WidgetClavier::initialiser(int x, int y)
 {
     m_bloque=0;
     this->add_child(box);
     box.add_child(text);
     text.set_message(chaine);
     text.set_frame(20,5,100,10);
-    box.set_frame(-30,-100,200,20);
-    box.set_bg_color(MARRONCLAIR);
+    box.set_frame(x,y,200,20);
+    box.set_bg_color(VERT);
 }
 void WidgetClavier::draw()
 {

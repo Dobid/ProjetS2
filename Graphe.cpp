@@ -2,6 +2,7 @@
 using namespace std;
 Graphe::Graphe(std::string fichier)
 {
+    ifrecup = true;
     m_fichier=fichier;
     Charger_Graphe(fichier);
 
@@ -17,6 +18,7 @@ Graphe::Graphe(std::string fichier)
     m_interface_fond.add_child(m_bouton_add_arete);
     m_interface_fond.add_child(m_bouton_add_sommet);
     m_interface_fond.add_child(m_bouton_supprimer);
+    m_interface_fond.add_child(m_clavier);
 
 
 
@@ -54,10 +56,29 @@ void Graphe::Charger_Graphe(std::string fichier)
 void Graphe::update()
 {
     m_interface_fond.update();
+
+
+
+    if(m_clavier.bloque()==1 && ifrecup == false)
+    {
+        str = m_clavier.recup_chaine();
+        ifrecup = true;
+        image = str;
+        image+= ".jpg";
+        Sommets.push_back(new Sommet(str,image,0,100,100,1));
+        m_clavier.initialiser(10000,100000);
+    }
+
     if ( m_bouton_sauvegarder.clicked())
         {
             Sauver_Graphe();
         }
+
+    if(m_clavier.bloque()!=1 && ifrecup == false)
+    {
+       m_clavier.update();
+    }
+
     if(m_bouton_add_sommet.clicked())
     {
         Nouveau_Sommet();
@@ -109,13 +130,9 @@ void Graphe::Sauver_Graphe()
 void Graphe::Nouveau_Sommet()
 {
     string nom, image;int type;
-    cout<<"veuillez saisir le nom de l animal"<<endl;
-    cin>>nom;
-    cout<<endl<<"veuillez saisir l image de l animal"<<endl;
-    cin>>image;
-    cout<<endl<<"Tapez 1 pour carnivore et 0 pour herbivore";
-    cin>>type;
-    Sommets.push_back(new Sommet(nom,image,type,100,100,1));
+    m_clavier.initialiser(18-512,744-384);
+    ifrecup = false;
+
 }
 void Graphe::Nouvelle_Arete()
 {

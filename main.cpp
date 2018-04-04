@@ -14,8 +14,8 @@ int main()
     grman::WidgetButton charger;
 
     menu_fond.set_frame(0,0,1024,768);
-    nouveau.set_frame(303,552,411,76);
-    charger.set_frame(303,649,411,76);
+    nouveau.set_frame(313,596,411,76);
+    charger.set_frame(313,683,411,76);
 
     grman::WidgetImage image_fond;
     grman::WidgetClavier Clavier;
@@ -47,7 +47,7 @@ int main()
             {
                 ok=1;
                 cout<<"nom du nouveau graphe?"<<endl;
-                Clavier.initialiser();
+                Clavier.initialiser(414-512,553-384);
                 while(Clavier.bloque()!=1)
                 {
                     menu_fond.update();
@@ -63,7 +63,7 @@ int main()
             if(charger.clicked())
             {
                 cout<<"nom du graphe a charger?"<<endl;
-                Clavier.initialiser();
+                Clavier.initialiser(414-512,553-384);
                 while(Clavier.bloque()!=1)
                 {
                     menu_fond.update();
