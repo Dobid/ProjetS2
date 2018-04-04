@@ -1,0 +1,301 @@
+# depslib dependency file v1.0
+1522797827 source:c:\users\quentin\desktop\projet info animaux\le projet\grman\coords.cpp
+	"coords.h"
+
+1522797827 c:\users\quentin\desktop\projet info animaux\le projet\grman\coords.h
+	<cmath>
+
+1522797827 source:c:\users\quentin\desktop\projet info animaux\le projet\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522797827 c:\users\quentin\desktop\projet info animaux\le projet\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522797827 c:\users\quentin\desktop\projet info animaux\le projet\grman\grman_couleurs.h
+
+1522797827 c:\users\quentin\desktop\projet info animaux\le projet\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522797827 source:c:\users\quentin\desktop\projet info animaux\le projet\grman\widget.cpp
+	"widget.h"
+
+1522725034 source:c:\users\quentin\desktop\projet info animaux\le projet\src\test.cpp
+	"test.h"
+
+1522726616 c:\users\quentin\desktop\projet info animaux\le projet\include\test.h
+	"grman.h"
+	<iostream>
+	<stack>
+
+1522797827 source:c:\users\quentin\desktop\projet info animaux\le projet\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522726736 c:\users\quentin\desktop\projet info animaux\le projet\test.h
+	"grman/grman.h"
+	<iostream>
+	<stack>
+
+1522726791 source:c:\users\quentin\desktop\projet info animaux\le projet\test.cpp
+	"test.h"
+
+1522818720 source:c:\users\quentin\desktop\projet info animaux\le projet\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1522817308 c:\users\quentin\desktop\projet info animaux\le projet\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522817308 c:\users\quentin\desktop\projet info animaux\le projet\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522818073 source:c:\users\quentin\desktop\projet info animaux\le projet\graphe.cpp
+	"Graphe.h"
+
+1522815115 source:c:\users\quentin\desktop\projet info animaux\le projet\arete.cpp
+	"Arete.h"
+
+1522815108 c:\users\quentin\desktop\projet info animaux\le projet\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522780393 source:c:\users\david\projet-sem2\le projet\arete.cpp
+	"Arete.h"
+
+1522780393 c:\users\david\projet-sem2\le projet\arete.h
+	"grman/grman.h"
+
+1522780393 c:\users\david\projet-sem2\le projet\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522780393 c:\users\david\projet-sem2\le projet\grman\grman_couleurs.h
+
+1522780393 c:\users\david\projet-sem2\le projet\grman\coords.h
+	<cmath>
+
+1522780393 c:\users\david\projet-sem2\le projet\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522780393 source:c:\users\david\projet-sem2\le projet\graphe.cpp
+	"Graphe.h"
+
+1522780393 c:\users\david\projet-sem2\le projet\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522780393 c:\users\david\projet-sem2\le projet\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522780393 source:c:\users\david\projet-sem2\le projet\grman\coords.cpp
+	"coords.h"
+
+1522780393 source:c:\users\david\projet-sem2\le projet\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522780393 source:c:\users\david\projet-sem2\le projet\grman\widget.cpp
+	"widget.h"
+
+1522780393 source:c:\users\david\projet-sem2\le projet\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522780393 source:c:\users\david\projet-sem2\le projet\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1522780393 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\arete.cpp
+	"Arete.h"
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\arete.h
+	"grman/grman.h"
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\grman_couleurs.h
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\coords.h
+	<cmath>
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522780393 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\graphe.cpp
+	"Graphe.h"
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522780393 c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522780393 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\coords.cpp
+	"coords.h"
+
+1522780393 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522788335 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\grman\widget.cpp
+	"widget.h"
+
+1522780393 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1522795368 source:c:\users\david\dropbox\ing2\informatique\projet-sem2\le projet\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522858265 source:c:\users\david\projet-sem2\arete.cpp
+	"Arete.h"
+
+1522787204 c:\users\david\projet-sem2\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522787204 c:\users\david\projet-sem2\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522787204 c:\users\david\projet-sem2\grman\grman_couleurs.h
+
+1522787204 c:\users\david\projet-sem2\grman\coords.h
+	<cmath>
+
+1522787204 c:\users\david\projet-sem2\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522787204 c:\users\david\projet-sem2\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522863962 source:c:\users\david\projet-sem2\graphe.cpp
+	"Graphe.h"
+
+1522863475 c:\users\david\projet-sem2\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522787204 source:c:\users\david\projet-sem2\grman\coords.cpp
+	"coords.h"
+
+1522787204 source:c:\users\david\projet-sem2\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522787204 source:c:\users\david\projet-sem2\grman\widget.cpp
+	"widget.h"
+
+1522787204 source:c:\users\david\projet-sem2\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522787204 source:c:\users\david\projet-sem2\sommet.cpp
+	"Sommet.h"
+	"string"
+
