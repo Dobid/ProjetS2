@@ -8,6 +8,11 @@ Graphe::Graphe(std::string fichier)
     m_fichier=fichier;
     Charger_Graphe(fichier);
 
+    m_fonctionnel.add_child(m_fond_bleu);
+    m_fonctionnel.set_frame(0,0,1024,768);
+    m_fond_bleu.set_frame(0,0,1024,768);
+    m_fond_bleu.set_pic_name("fond_bleu.jpg");
+
     m_interface_fond.set_frame(0,0,1024,110);
     m_bouton_sauvegarder.set_frame(6,5,88,78);
     m_bouton_add_sommet.set_frame(116,5,88,78);
@@ -15,6 +20,7 @@ Graphe::Graphe(std::string fichier)
     m_bouton_supprimer.set_frame(418,5,88,78);
     m_fond_image.set_frame(0,0,1024,768);
     m_bouton_start.set_frame(520,5,88,78);
+    m_structurel.set_frame(620,5,88,78);
 
     m_interface_fond.add_child(m_fond_image);
     m_interface_fond.add_child(m_bouton_sauvegarder);
@@ -23,6 +29,7 @@ Graphe::Graphe(std::string fichier)
     m_interface_fond.add_child(m_bouton_supprimer);
     m_interface_fond.add_child(m_clavier);
     m_interface_fond.add_child(m_bouton_start);
+    m_interface_fond.add_child(m_structurel);
     m_bouton_start.add_child(m_start_image);
     m_start_image.set_pic_name("lecture.jpg");
 
@@ -62,6 +69,14 @@ void Graphe::Charger_Graphe(std::string fichier)
 }
 void Graphe::update()
 {
+    if(m_structurel.clicked())
+    {
+        while(!key[KEY_ESC])
+        {
+            m_fonctionnel.update();
+            grman::mettre_a_jour();
+        }
+    }
     m_interface_fond.update();
 
     if(m_bouton_start.clicked())

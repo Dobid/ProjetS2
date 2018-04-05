@@ -117,12 +117,13 @@ int Sommet::selectionne()
 }
 void Sommet::dynamique_pop(float k,float l)
 {
-    if(k!=0)
-    {
+
     float valeur;
-    valeur=m_popp+(m_rythme_croissance*(float)m_popp*(1-((float)m_popp/(k))))-l;
+    if(k!=0)
+        valeur=m_popp+(m_rythme_croissance*(float)m_popp*(1-((float)m_popp/(k))))-l;
+    else
+        valeur=m_popp-l;
     if(valeur>100){valeur=100;}
     if(valeur<0){valeur=0;}
     m_regle.set_value(valeur);
-    }
 }

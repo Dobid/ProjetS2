@@ -28,9 +28,12 @@ class Graphe
         grman::WidgetButton m_bouton_add_sommet;
         grman::WidgetButton m_bouton_add_arete;
         grman::WidgetButton m_bouton_start;
+        grman::WidgetButton m_structurel;
         grman::WidgetImage m_fond_image;
         grman::WidgetImage m_start_image;
         grman::WidgetClavier m_clavier;
+        grman::WidgetImage m_fond_bleu;
+        grman::WidgetBox m_fonctionnel;
 
         bool ifrecup;bool start;
         std::string m_fichier;
