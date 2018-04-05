@@ -2,7 +2,9 @@
 using namespace std;
 Graphe::Graphe(std::string fichier)
 {
+    temps=0;
     ifrecup = true;
+    start=false;
     m_fichier=fichier;
     Charger_Graphe(fichier);
 
@@ -12,6 +14,7 @@ Graphe::Graphe(std::string fichier)
     m_bouton_add_arete.set_frame(273,5,88,78);
     m_bouton_supprimer.set_frame(418,5,88,78);
     m_fond_image.set_frame(0,0,1024,768);
+    m_bouton_start.set_frame(520,5,88,78);
 
     m_interface_fond.add_child(m_fond_image);
     m_interface_fond.add_child(m_bouton_sauvegarder);
@@ -19,6 +22,10 @@ Graphe::Graphe(std::string fichier)
     m_interface_fond.add_child(m_bouton_add_sommet);
     m_interface_fond.add_child(m_bouton_supprimer);
     m_interface_fond.add_child(m_clavier);
+    m_interface_fond.add_child(m_bouton_start);
+    m_bouton_start.add_child(m_start_image);
+    m_start_image.set_pic_name("lecture.jpg");
+
 
 
 
@@ -35,7 +42,7 @@ Graphe::~Graphe()
 }
 void Graphe::Charger_Graphe(std::string fichier)
 {
-    int nbr;
+    int nbr;int facteur;
     string nom_animal, nom_image;int couleur, x, y,pop;
     int s1,s2;
     std::ifstream fic(fichier,ios::in);
@@ -48,8 +55,8 @@ void Graphe::Charger_Graphe(std::string fichier)
     fic>>nbr;
     for(int i=0;i<nbr;i++)
     {
-        fic>>s1>>s2;
-        Aretes.push_back(new Arete(Sommets[s1]->get_box(),Sommets[s2]->get_box(),s1,s2));
+        fic>>s1>>s2>>facteur;
+        Aretes.push_back(new Arete(Sommets[s1]->get_box(),Sommets[s2]->get_box(),s1,s2,facteur));
     }
 
 }
@@ -57,8 +64,19 @@ void Graphe::update()
 {
     m_interface_fond.update();
 
-
-
+    if(m_bouton_start.clicked())
+    {
+        if(start==false)
+        {
+            start=true;
+            m_start_image.set_pic_name("pause.jpg");
+        }
+        else if(start==true)
+        {
+            start=false;
+            m_start_image.set_pic_name("lecture.jpg");
+        }
+    }
     if(m_clavier.bloque()==1 && ifrecup == false)
     {
         str = m_clavier.recup_chaine();
@@ -96,6 +114,13 @@ void Graphe::update()
     {
         if(Aretes[i]->utilise())
             Aretes[i]->update(Sommets);
+    }
+    if(start==true)
+        temps++;
+    if(temps==10)
+    {
+        temps=0;
+        la_vie_suit_son_cours();
     }
 }
 void Graphe::Sauver_Graphe()
@@ -157,6 +182,35 @@ void Graphe::Nouvelle_Arete()
     }
     else
     {
-        Aretes.push_back(new Arete(Sommets[lsommet1]->get_box(),Sommets[lsommet2]->get_box(),lsommet1,lsommet2));
+        Aretes.push_back(new Arete(Sommets[lsommet1]->get_box(),Sommets[lsommet2]->get_box(),lsommet1,lsommet2,0));
+    }
+}
+void Graphe::la_vie_suit_son_cours()
+{
+    float k=0;float l=0;
+    for(int i=0;i<(signed)Sommets.size();i++)
+    {
+        if(Sommets[i]->utilise())
+        {
+
+            for(int j=0;j<(signed)Aretes.size();j++)
+            {
+
+                if(Aretes[j]->utilise())
+                {
+                    if(Aretes[j]->sommet1()==i)
+                    {
+                        k=k+(((float)Aretes[j]->facteur())*((float)Sommets[Aretes[j]->sommet2()]->population()));
+                    }
+                    if(Aretes[j]->sommet2()==i)
+                    {
+                        l=l+(((float)Aretes[j]->facteur())*((float)Sommets[Aretes[j]->sommet1()]->population()));
+                    }
+                }
+            }
+            cout<<k<<" "<<l<<endl;
+            Sommets[i]->dynamique_pop(k,l);
+            k=0;l=0;
+        }
     }
 }

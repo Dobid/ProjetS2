@@ -2,8 +2,9 @@
 
 using namespace std;
 
-Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,int lsommet2)
+Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,int lsommet2,int facteur)
 {
+    m_facteur=facteur;
     m_utilise=1;
     m_sommet1=lsommet1;
     m_sommet2=lsommet2;
@@ -15,9 +16,22 @@ Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,in
     m_lien.add_child(m_bouton);
     m_bouton.set_dim(10,10);
     m_bouton.set_bg_color(ROUGE);
+    m_lien.add_child(m_regle);
+    m_regle.set_range(0, 1, false); // 3ème param true => valeurs entières
+    m_regle.set_frame(10,-25,20,40);
+    m_regle.set_bg_color(ROSE);
+    m_regle.set_value(m_facteur);
+    m_lien.add_child(m_box);
+    m_box.set_bg_color(ROSE);
+    m_box.set_frame(10,15,20,15);
+    m_box.add_child(m_legende);
+    m_legende.set_message(to_string(m_facteur));
+    m_legende.set_bg_color(ROSE);
 }
 void Arete::update(vector<Sommet*> Sommets)
 {
+    m_facteur=m_regle.get_value();
+    m_legende.set_message(to_string(m_facteur));
     if(m_bouton.clicked())
     {
         m_utilise=0;
@@ -41,6 +55,8 @@ std::string Arete::save(vector<int> sommets_non_utilise)
     chaine=to_string(newsommet1);
     chaine+=" ";
     chaine+=to_string(newsommet2);
+    chaine+=" ";
+    chaine+=m_facteur;
     return chaine;
 }
 Arete::~Arete()

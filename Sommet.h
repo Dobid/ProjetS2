@@ -2,7 +2,7 @@
 #define SOMMET_H
 #include "grman/grman.h"
 #include <iostream>
-
+#include <vector>
 class Sommet
 {
     public:
@@ -12,6 +12,8 @@ class Sommet
         grman::WidgetBox& get_box();
         int utilise();
         int selectionne();
+        int population(){return m_popp;}
+        void dynamique_pop(float k,float l);
         std::string save();
 
 
@@ -20,6 +22,7 @@ class Sommet
     private:
         std::string m_nom_animal,m_nom_image;int m_couleur,m_x,m_y,m_popp,m_utilise;
         int m_selectionne;
+        float m_rythme_croissance;
         grman::WidgetButton m_bouton;
         grman::WidgetButton m_selec;
         grman::WidgetBox m_box;
@@ -27,6 +30,7 @@ class Sommet
         grman::WidgetText m_legende;
         grman::WidgetText m_pop;
         grman::WidgetVSlider m_regle;
+        grman::WidgetVSlider m_regle_croissance;
 };
 
 #endif // SOMMET_H

@@ -4,5 +4,5 @@ singe singe.jpg 0 443 284 23
 lion lion.jpg 1 443 457 100
 lion lion.jpg 1 446 148 86
 2
-1 2
-3 1
+1 2 3
+3 1 7
