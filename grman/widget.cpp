@@ -412,13 +412,30 @@ void WidgetClavier::initialiser(int x, int y)
     m_bloque=0;
     this->add_child(box);
     box.add_child(text);
+    box.add_child(curseur);
     text.set_message(chaine);
+    curseur.set_message("I");
     text.set_frame(20,5,100,10);
+    curseur.set_frame(20+chaine.size(),5,100,10);
     box.set_frame(x,y,200,20);
     box.set_bg_color(VERT);
 }
 void WidgetClavier::draw()
 {
+    m_curseur++;
+    if(m_curseur>20)
+    {
+        curseur.set_frame(20+chaine.size()*8,5,100,10);
+        curseur.set_message("I");
+    }
+    else
+    {
+        curseur.set_message("");
+    }
+    if(m_curseur==50)
+    {
+        m_curseur=0;
+    }
     text.set_message(chaine);
     if(m_bloque!=1)
     {

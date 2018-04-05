@@ -24,9 +24,15 @@ Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int po
     m_regle.set_bg_color(BLANC);
     m_regle.set_gravity_xy(grman::GravityX::Left,grman::GravityY::Center);
     m_regle.set_range(0, 100, true); // 3ème param true => valeurs entières
-    m_regle.set_frame(1,1,15,75);
+    m_regle.set_frame(1,31,15,48);
     m_regle.set_value(pop);
 
+    m_box.add_child(m_regle_croissance);
+    m_regle_croissance.set_bg_color(BLANC);
+    m_regle_croissance.set_gravity_xy(grman::GravityX::Left,grman::GravityY::Center);
+    m_regle_croissance.set_range(1, 10, false); // 3ème param true => valeurs entières
+    m_regle_croissance.set_frame(1,1,15,29);
+    m_regle_croissance.set_value(m_rythme_croissance);
     m_box.add_child(m_bouton);
     m_bouton.set_frame(110,0,10,10);
     m_bouton.set_bg_color(ROUGE);
@@ -48,6 +54,8 @@ Sommet::~Sommet()
 void Sommet::update()
 {
     m_pop.set_message(std::to_string((int)m_regle.get_value()));
+    m_popp=m_regle.get_value();
+    m_rythme_croissance=m_regle_croissance.get_value();
     m_box.update();
     if(m_bouton.clicked())
     {
@@ -106,4 +114,16 @@ int Sommet::utilise()
 int Sommet::selectionne()
 {
     return m_selectionne;
+}
+void Sommet::dynamique_pop(float k,float l)
+{
+
+    float valeur;
+    if(k!=0)
+        valeur=m_popp+(m_rythme_croissance*(float)m_popp*(1-((float)m_popp/(k))))-l;
+    else
+        valeur=m_popp-l;
+    if(valeur>100){valeur=100;}
+    if(valeur<0){valeur=0;}
+    m_regle.set_value(valeur);
 }
