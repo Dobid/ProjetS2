@@ -450,8 +450,10 @@ class WidgetClavier : public Widget
     protected :
         WidgetBox box;
         WidgetText text;
+        WidgetText curseur;
         std::string chaine;
         int m_bloque = 1;
+        int m_curseur = 0;
         std::vector<std::string> prec;
     public :
         void initialiser(int x, int y);
