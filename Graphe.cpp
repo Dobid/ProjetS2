@@ -16,11 +16,11 @@ Graphe::Graphe(std::string fichier)
     m_interface_fond.set_frame(0,0,1024,110);
     m_bouton_sauvegarder.set_frame(6,5,88,78);
     m_bouton_add_sommet.set_frame(116,5,88,78);
-    m_bouton_add_arete.set_frame(273,5,88,78);
-    m_bouton_add_ressource.set_frame(418,5,88,78);
+    m_bouton_add_arete.set_frame(447,5,88,78);
+    m_bouton_add_ressource.set_frame(290,5,88,78);
     m_fond_image.set_frame(0,0,1024,768);
-    m_bouton_start.set_frame(520,5,88,78);
-    m_structurel.set_frame(620,5,88,78);
+    m_bouton_start.set_frame(560,5,88,78);
+    m_structurel.set_frame(670,5,88,78);
 
     m_interface_fond.add_child(m_fond_image);
     m_interface_fond.add_child(m_bouton_sauvegarder);
