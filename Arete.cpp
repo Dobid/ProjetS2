@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,int lsommet2,int facteur)
+Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,int lsommet2,float facteur)
 {
     m_facteur=facteur;
     m_utilise=1;
@@ -17,7 +17,7 @@ Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,in
     m_bouton.set_dim(10,10);
     m_bouton.set_bg_color(ROUGE);
     m_lien.add_child(m_regle);
-    m_regle.set_range(0, 1, false); // 3ème param true => valeurs entières
+    m_regle.set_range(0, 10, true); // 3ème param true => valeurs entières
     m_regle.set_frame(10,-25,20,40);
     m_regle.set_bg_color(ROSE);
     m_regle.set_value(m_facteur);
@@ -56,7 +56,7 @@ std::string Arete::save(vector<int> sommets_non_utilise)
     chaine+=" ";
     chaine+=to_string(newsommet2);
     chaine+=" ";
-    chaine+=m_facteur;
+    chaine+=to_string(m_facteur);
     return chaine;
 }
 Arete::~Arete()

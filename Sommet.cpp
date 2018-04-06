@@ -1,8 +1,10 @@
 #include "Sommet.h"
 #include "string"
 using namespace std;
-Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int pop)
+Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int pop, bool isAnimal)
 {
+    m_isAnimal = isAnimal;
+    m_connexe=0;
     m_utilise=1;m_selectionne=0;
     m_nom_animal=nom_animal;m_nom_image=nom_image;m_couleur=couleur;m_x=x;m_y=y;m_popp=pop;
     m_box.set_frame(x, y, 120, 90);
@@ -30,7 +32,7 @@ Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int po
     m_box.add_child(m_regle_croissance);
     m_regle_croissance.set_bg_color(BLANC);
     m_regle_croissance.set_gravity_xy(grman::GravityX::Left,grman::GravityY::Center);
-    m_regle_croissance.set_range(1, 10, false); // 3ème param true => valeurs entières
+    m_regle_croissance.set_range(0.1, 1, false); // 3ème param true => valeurs entières
     m_regle_croissance.set_frame(1,1,15,29);
     m_regle_croissance.set_value(m_rythme_croissance);
     m_box.add_child(m_bouton);
@@ -105,6 +107,8 @@ string Sommet::save()
     chaine+=to_string(m_y);
     chaine+=" ";
     chaine+=to_string((int)m_regle.get_value());
+    chaine+= " ";
+    chaine+=to_string(m_isAnimal);
     return chaine;
 }
 int Sommet::utilise()
@@ -117,7 +121,8 @@ int Sommet::selectionne()
 }
 void Sommet::dynamique_pop(float k,float l)
 {
-
+    if(m_isAnimal)
+    {
     float valeur;
     if(k!=0)
         valeur=m_popp+(m_rythme_croissance*(float)m_popp*(1-((float)m_popp/(k))))-l;
@@ -126,4 +131,39 @@ void Sommet::dynamique_pop(float k,float l)
     if(valeur>100){valeur=100;}
     if(valeur<0){valeur=0;}
     m_regle.set_value(valeur);
+    if(k==0&&l==1)
+    {
+        m_regle.set_value(0);
+    }
+}
+else{m_regle.set_value(m_popp+m_popp*m_rythme_croissance-l);}
+}
+void Sommet::set_couleur(int i)
+{
+    cout<<i<<endl;
+    switch(i)
+    {
+    case 0:m_box.set_bg_color(BLANCBLEU);break;
+    case 1:m_box.set_bg_color(VERTFLUO);break;
+    case 2:m_box.set_bg_color(JAUNE);break;
+    case 3:m_box.set_bg_color(ROUGE);break;
+    case 4:m_box.set_bg_color(VIOLET);break;
+    case 5:m_box.set_bg_color(ROUGE);break;
+    case 6:m_box.set_bg_color(VIOLETCLAIR);break;
+    case 7:m_box.set_bg_color(ORANGE);break;
+    case 8:m_box.set_bg_color(BLEU);break;
+    case 9:m_box.set_bg_color(MARRON);break;
+    case 10:m_box.set_bg_color(BLANC);break;
+    case 11:m_box.set_bg_color(KAKI);break;
+    case 12:m_box.set_bg_color(CYAN);break;
+    case 13:m_box.set_bg_color(SABLE);break;
+    case 14:m_box.set_bg_color(ROSE);break;
+    case 15:m_box.set_bg_color(FUCHSIA);break;
+    case 16:m_box.set_bg_color(NOIR);break;
+    case 17:m_box.set_bg_color(BLANCJAUNE);break;
+    case 18:m_box.set_bg_color(BLANCROSE);break;
+    case 19:m_box.set_bg_color(VIOLETSOMBRE);break;
+    }
+
+
 }

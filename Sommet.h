@@ -6,7 +6,7 @@
 class Sommet
 {
     public:
-        Sommet(std::string nom_animal,std::string nom_image,int couleur,int x,int y,int pop);
+        Sommet(std::string nom_animal,std::string nom_image,int couleur,int x,int y,int pop, bool isAnimal);
         virtual ~Sommet();
         void update();
         grman::WidgetBox& get_box();
@@ -14,6 +14,9 @@ class Sommet
         int selectionne();
         int population(){return m_popp;}
         void dynamique_pop(float k,float l);
+        void set_couleur(int i);
+        int get_connexe(){return m_connexe;}
+        void set_connexe(int connexe){m_connexe=connexe;}
         std::string save();
 
 
@@ -22,6 +25,8 @@ class Sommet
     private:
         std::string m_nom_animal,m_nom_image;int m_couleur,m_x,m_y,m_popp,m_utilise;
         int m_selectionne;
+        int m_connexe;
+        bool m_isAnimal;
         float m_rythme_croissance;
         grman::WidgetButton m_bouton;
         grman::WidgetButton m_selec;
