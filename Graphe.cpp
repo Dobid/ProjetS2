@@ -46,7 +46,7 @@ Graphe::~Graphe()
 }
 void Graphe::Charger_Graphe(std::string fichier)
 {
-    int nbr;float facteur;
+    int nbr;float facteur;float rythme_croissance;
     string nom_animal, nom_image;int couleur, x, y,pop;
     bool isAnimal;
     int s1,s2;
@@ -54,8 +54,8 @@ void Graphe::Charger_Graphe(std::string fichier)
     fic>>nbr;
     for(int i=0;i<nbr;i++)
     {
-        fic>>nom_animal>>nom_image>>couleur>>x>>y>>pop>>isAnimal;
-        Sommets.push_back(new Sommet(nom_animal,nom_image,couleur,x,y,pop,isAnimal));
+        fic>>nom_animal>>nom_image>>couleur>>x>>y>>pop>>isAnimal>>rythme_croissance;
+        Sommets.push_back(new Sommet(nom_animal,nom_image,couleur,x,y,pop,isAnimal,rythme_croissance));
     }
     fic>>nbr;
     for(int i=0;i<nbr;i++)
@@ -172,8 +172,8 @@ void Graphe::update()
             {
                 m_sous_graphe[x]->add_child(m_lien_sous_graphe_edge[i]);
                 m_lien_sous_graphe_edge[i].reset_arrow_with_bullet();
-                m_lien_sous_graphe_edge[i].attach_from(m_les_sommets_sous_graphe[m_lien_sous_graphe[i+1]]);
-                m_lien_sous_graphe_edge[i].attach_to(m_les_sommets_sous_graphe[m_lien_sous_graphe[i]]);
+                m_lien_sous_graphe_edge[i].attach_from(m_les_sommets_sous_graphe[m_lien_sous_graphe[2*i]]);
+                m_lien_sous_graphe_edge[i].attach_to(m_les_sommets_sous_graphe[m_lien_sous_graphe[2*i+1]]);
             }
             }
 
@@ -212,7 +212,7 @@ void Graphe::update()
         ifrecup = true;
         image = str;
         image+= ".jpg";
-        Sommets.push_back(new Sommet(str,image,0,100,100,1,m_isAnimal));
+        Sommets.push_back(new Sommet(str,image,0,100,100,1,m_isAnimal,1));
         m_clavier.initialiser(10000,100000);
     }
 

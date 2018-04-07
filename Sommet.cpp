@@ -1,8 +1,9 @@
 #include "Sommet.h"
 #include "string"
 using namespace std;
-Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int pop, bool isAnimal)
+Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int pop, bool isAnimal,float rythme_croissance)
 {
+    m_rythme_croissance=rythme_croissance;
     m_isAnimal = isAnimal;
     m_connexe=0;
     m_utilise=1;m_selectionne=0;
@@ -109,6 +110,8 @@ string Sommet::save()
     chaine+=to_string((int)m_regle.get_value());
     chaine+= " ";
     chaine+=to_string(m_isAnimal);
+    chaine+=" ";
+    chaine+=to_string(m_rythme_croissance);
     return chaine;
 }
 int Sommet::utilise()

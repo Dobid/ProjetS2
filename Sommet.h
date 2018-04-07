@@ -6,7 +6,7 @@
 class Sommet
 {
     public:
-        Sommet(std::string nom_animal,std::string nom_image,int couleur,int x,int y,int pop, bool isAnimal);
+        Sommet(std::string nom_animal,std::string nom_image,int couleur,int x,int y,int pop, bool isAnimal,float rythme_croissance);
         virtual ~Sommet();
         void update();
         grman::WidgetBox& get_box();
