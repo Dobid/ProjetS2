@@ -55,6 +55,7 @@ class Graphe
 
         grman::WidgetButton m_graphique_bouton;
         std::vector< grman::WidgetBox*> m_graphe_fenetre;
+        std::vector<grman::WidgetText*>m_Text;
         std::vector<grman::WidgetButton*> m_graphe_bouton;
         std::vector<grman::WidgetCheckBox*> m_graphe_point;
         std::vector<grman::WidgetEdge*> m_segment;

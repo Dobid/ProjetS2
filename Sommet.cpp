@@ -134,7 +134,7 @@ void Sommet::dynamique_pop(float k,float l)
     if(valeur>100){valeur=100;}
     if(valeur<0){valeur=0;}
     m_regle.set_value(valeur);
-    if(k==0&&l==1)
+    if(k==0&&l==0)
     {
         m_regle.set_value(0);
     }
@@ -143,7 +143,6 @@ else{m_regle.set_value(m_popp+m_popp*m_rythme_croissance-l);}
 }
 void Sommet::set_couleur(int i)
 {
-    cout<<i<<endl;
     switch(i)
     {
     case 0:m_box.set_bg_color(BLANCBLEU);break;

@@ -53,6 +53,8 @@ void Graphe::Charger_Graphe(std::string fichier)
     bool isAnimal;
     int s1,s2;
     std::ifstream fic(fichier,ios::in);
+    if(fic)
+    {
     fic>>nbr;
     for(int i=0;i<nbr;i++)
     {
@@ -65,11 +67,13 @@ void Graphe::Charger_Graphe(std::string fichier)
         fic>>s1>>s2>>facteur;
         Aretes.push_back(new Arete(Sommets[s1]->get_box(),Sommets[s2]->get_box(),s1,s2,facteur));
     }
+    }
+    else{allegro_message("Fichier non trouvé");}
 
 }
 void Graphe::update()
 {
-    int z=0;int lolilol=0;int changement=0;std::vector<int> historique;
+    int z=0;int lolilol=0;int changement=0;std::vector<int> historique;std::string ecriture;
     if(m_graphique_bouton.clicked())
     {
         m_graphe_fenetre.push_back(new grman::WidgetBox);
@@ -99,7 +103,7 @@ void Graphe::update()
                     m_graphe_point.clear();
                     m_segment.clear();
                     m_legende1[y]->set_message(Sommets[i]->get_nom());
-                    for(int j=0;j<historique.size();j++)
+                    for(int j=0;j<(signed)historique.size();j++)
                     {
                         m_graphe_point.push_back(new grman::WidgetCheckBox);
                         m_graphe_fenetre[y]->add_child(*m_graphe_point[j]);
@@ -125,7 +129,7 @@ void Graphe::update()
                     m_graphe_point.clear();
                     m_segment.clear();
                     m_legende2[y]->set_message(Sommets[i]->get_nom());
-                    for(int j=0;j<historique.size();j++)
+                    for(int j=0;j<(signed)historique.size();j++)
                     {
                         m_graphe_point.push_back(new grman::WidgetCheckBox);
                         m_graphe_fenetre[y]->add_child(*m_graphe_point[j]);
@@ -148,7 +152,7 @@ void Graphe::update()
     if(m_structurel.clicked())
     {
         int itsok=0;
-        for(int i=0;i<Sommets.size();i++)
+        for(int i=0;i<(signed)Sommets.size();i++)
         {
             if(!Sommets[i]->utilise())
                 itsok=1;
@@ -177,29 +181,29 @@ void Graphe::update()
             if(Aretes[i]->utilise())
                 m_tab_adjacence[Aretes[i]->sommet1()][Aretes[i]->sommet2()]=1;
         }
-        for(int i=0;i<(signed)Sommets.size();i++)
-        {
-            for(int j=0;j<(signed)Sommets.size();j++)
-            {
-                cout<<m_tab_adjacence[i][j];
-            }
-            cout<<endl;
-        }
         rep=k_connexe(m_tab_adjacence,Sommets.size());
-        cout<<"c'est un"<<rep[0]<<"uplet"<<endl;
-        for(int i=0;i<rep[1];i++)
+        ecriture="c'est un ";
+        ecriture+=to_string(rep[0]);
+        ecriture+="-uplet. ";
+        ecriture+="nbr combi:";
+        ecriture+=to_string(rep[1]);
+        for(int i=0;i<rep[1]*rep[0];i++)
         {
-            cout<<rep[i]+2;
-            cout<<Sommets[i]->population();
+            ecriture+=" ";
+            if((rep[i+2])<(signed)Sommets.size()&&(rep[i+2])>=0)
+                ecriture+=Sommets[rep[(i)+2]]->get_nom();
         }
-        cout<<"stop";
         result=toutesLesComposantesFortementConnexes(m_tab_adjacence,Sommets.size());
         m_sous_graphe.push_back(new grman::WidgetBox);
+        m_Text.push_back(new grman::WidgetText);
         m_sous_graphe_bouton.push_back(new grman::WidgetButton);
         m_interface_fond.add_child(*m_sous_graphe[x]);
         m_sous_graphe[x]->set_bg_color(BLEUCLAIR);
         m_sous_graphe[x]->set_moveable();
         m_sous_graphe[x]->add_child(*m_sous_graphe_bouton[x]);
+        m_sous_graphe[x]->add_child(*m_Text[x]);
+        m_Text[x]->set_message(ecriture);
+        m_Text[x]->set_frame(10,290,10000,10000);
         m_sous_graphe[x]->set_frame(7455,350,500,300);
         m_sous_graphe_bouton[x]->set_frame(479,1,20,20);
         m_sous_graphe_bouton[x]->set_bg_color(ROUGE);
@@ -274,8 +278,6 @@ void Graphe::update()
                 m_lien_sous_graphe_edge[i].attach_to(m_les_sommets_sous_graphe[m_lien_sous_graphe[2*i+1]]);
             }
             }
-
-            cout<<endl;
         x++;
 
         rest(500);
@@ -358,7 +360,7 @@ void Graphe::update()
     {
         temps=0;
         la_vie_suit_son_cours();
-        for(int i=0;i<Sommets.size();i++)
+        for(int i=0;i<(signed)Sommets.size();i++)
         {
             Sommets[i]->set_historique();
         }
@@ -424,7 +426,7 @@ void Graphe::Nouvelle_Arete()
     }
     if(nbr_selec1!=1||nbrselec2!=1)
     {
-        cout<<"Il n'y a pas 2 sommets de couleur differente selectionnes, creation d arete impossible"<<endl;
+        allegro_message("Il n'y a pas 2 sommets de couleur differente selectionnes, creation d arete impossible");
     }
     else
     {
@@ -454,7 +456,6 @@ void Graphe::la_vie_suit_son_cours()
                     }
                 }
             }
-            cout<<k<<" "<<l<<endl;
             Sommets[i]->dynamique_pop(k,l);
             k=0;l=0;
 
@@ -565,13 +566,13 @@ int* Graphe::uneComposanteFortementConnexe(int** adjacence,int ordre,int s)
 int* Graphe::k_connexe(int** adj,int ordre)
 {
     int combinaisons[200][10];int vrai;int nombre=0;int i_reel;int j_reel;
-    int** matrice;
+    int** matrice={0};
     int stock[300];
     int curseur=0;
     int*resulat;
     if(!connexe(adj,ordre))
     {
-        cout<<"le graphe n'est pas connexe";
+        allegro_message("le graphe n'est pas connexe");
         resulat=new int;
         resulat[0]=0;
     }
@@ -592,6 +593,10 @@ int* Graphe::k_connexe(int** adj,int ordre)
             }
             for(int k=0;k<(factoriel(ordre)/(factoriel(nombre)*(factoriel(ordre-nombre))));k++)
             {
+                for(int j=0;j<nombre;j++)
+                {
+                    stock[(curseur*(nombre))+j]=combinaisons[k*(nombre)][j]-1;
+                }
                 for(int i=0;i<ordre;i++)
                 {
                     for(int j=0;j<ordre;j++)
@@ -617,17 +622,13 @@ int* Graphe::k_connexe(int** adj,int ordre)
                 if(!connexe(matrice,ordre-nombre))
                 {
                     vrai=1;
-                    for(int p=0;p<nombre;p++)
-                    {
-                        stock[curseur*(nombre-1)+p]=combinaisons[k][nombre];
-                    }
                     curseur++;
 
                 }
             }
             delete matrice;
         }
-        resulat=new int [2+curseur*nombre];
+        resulat=new int [2+curseur*(nombre+1)];
         resulat[0]=nombre;
         resulat[1]=curseur;
         for(int i=0;i<curseur*nombre;i++)
@@ -640,7 +641,6 @@ int* Graphe::k_connexe(int** adj,int ordre)
 //source rendu tp 2 Mongault Quentin Da Costa Soares Romain
 bool Graphe::connexe(int** adj,int ordre)
 {
-    int utilise=0;
     std::vector<int> sommets;
     int* marquage;int fait=0;
     marquage=new int[ordre];
@@ -665,7 +665,7 @@ bool Graphe::connexe(int** adj,int ordre)
             while(changement!=0)
             {
                 changement=0;
-                for(int i=0;i<sommets.size();i++)
+                for(int i=0;i<(signed)sommets.size();i++)
                 {
                     for(int j=0;j<ordre;j++)
                     {
@@ -678,18 +678,7 @@ bool Graphe::connexe(int** adj,int ordre)
                     }
                 }
             }
-
-        if(sommets.size()!=0)
-        {
-            std::cout<<"Une composante connexe est ";
-            for(int i=0;i<sommets.size();i++)
-            {
-                std::cout<<sommets[i]<<" ";
-
-            }
-        std::cout<<std::endl;
-        }
-        if(ordre==sommets.size())
+        if(ordre==(signed)sommets.size())
             return true;
         else
             return false;
