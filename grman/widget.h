@@ -221,6 +221,7 @@ class WidgetText : public Widget
     public :
         WidgetText(std::string message="") { m_border=m_padding=0; set_message(message); }
         virtual void draw();
+        void set_text_color(int color){m_color=color;}
 
         void set_message(std::string message="");
         std::string get_message() { return m_message; }
@@ -412,7 +413,7 @@ class WidgetEdge : public Widget
         // Elements de décoration : pointes de flèches, rond etc...
         std::vector<ArrowItem> m_items;
 
-        int m_color = GRISSOMBRE;
+        int m_color =GRISSOMBRE;
         int m_thickness = 2;
 
         // Position relative des éventuels Widgets enfants le long de l'arc, 0 origine, 0.5 milieu, 1.0 destination
@@ -427,7 +428,7 @@ class WidgetEdge : public Widget
 
         void attach_from(Widget& from) { m_attach[0] = &from; }
         void attach_to(Widget& to) { m_attach[1] = &to; }
-
+        void set_m_color(int color){m_color=color;}
         void reset_no_items() { m_items.clear(); }
         void reset_arrow() { m_items = { {ArrowItemType::Arrow, 1.0} }; }
         void reset_arrow_with_bullet() { m_items = { {ArrowItemType::Arrow, 1.0},

@@ -6,7 +6,7 @@
 class Sommet
 {
     public:
-        Sommet(std::string nom_animal,std::string nom_image,int couleur,int x,int y,int pop, bool isAnimal);
+        Sommet(std::string nom_animal,std::string nom_image,int couleur,int x,int y,int pop, bool isAnimal,float rythme_croissance);
         virtual ~Sommet();
         void update();
         grman::WidgetBox& get_box();
@@ -17,6 +17,10 @@ class Sommet
         void set_couleur(int i);
         int get_connexe(){return m_connexe;}
         void set_connexe(int connexe){m_connexe=connexe;}
+        std::string get_nom(){return m_nom_animal;}
+        std::vector<int> m_historique;
+        void set_historique(){m_historique.push_back(m_popp);}
+        std::vector<int> get_historique(){return m_historique;}
         std::string save();
 
 
