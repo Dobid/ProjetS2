@@ -10,14 +10,14 @@ Arete::Arete(grman::WidgetBox& sommet1,grman::WidgetBox& sommet2,int lsommet1,in
     m_sommet2=lsommet2;
     m_top_box.set_frame(500, 600, 0, 0);
     m_top_box.add_child( m_lien );
-    m_lien.attach_from(sommet1);
-    m_lien.attach_to(sommet2);
+    m_lien.attach_from(sommet2);
+    m_lien.attach_to(sommet1);
     m_lien.reset_arrow_with_bullet();
     m_lien.add_child(m_bouton);
     m_bouton.set_dim(10,10);
     m_bouton.set_bg_color(ROUGE);
     m_lien.add_child(m_regle);
-    m_regle.set_range(0, 10, true); // 3ème param true => valeurs entières
+    m_regle.set_range(0, 5, false); // 3ème param true => valeurs entières
     m_regle.set_frame(10,-25,20,40);
     m_regle.set_bg_color(ROSE);
     m_regle.set_value(m_facteur);

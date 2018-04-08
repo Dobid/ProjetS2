@@ -34,11 +34,14 @@ int main()
     //image_charger.set_pic_name("charger.jpg");
 
     int arret=0;
+    int sauvegarder=0;
     while(!key[KEY_ESC]&&arret==0)
     {
         ok=0;
         while(ok==0)
         {
+            if(sauvegarder==0)
+            {
             menu_fond.update();
             nouveau.update();
             charger.update();
@@ -80,12 +83,19 @@ int main()
                 arret=1;
             }
         }
+        else
+        {
+            sauvegarder=0;
+            ok=1;
+        }
+        }
         if(arret!=1)
         {
             Graphe k(fichier);
-            while ( !key[KEY_ESC] )
+            while ( !key[KEY_ESC] &&sauvegarder==0)
             {
                 k.update();
+                sauvegarder=k.get_sauvegarde();
                 grman::mettre_a_jour();
             }
             rest(200);

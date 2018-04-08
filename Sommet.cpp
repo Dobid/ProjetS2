@@ -1,8 +1,9 @@
 #include "Sommet.h"
 #include "string"
 using namespace std;
-Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int pop, bool isAnimal)
+Sommet::Sommet(string nom_animal,string nom_image,int couleur,int x,int y,int pop, bool isAnimal,float rythme_croissance)
 {
+    m_rythme_croissance=rythme_croissance;
     m_isAnimal = isAnimal;
     m_connexe=0;
     m_utilise=1;m_selectionne=0;
@@ -109,6 +110,8 @@ string Sommet::save()
     chaine+=to_string((int)m_regle.get_value());
     chaine+= " ";
     chaine+=to_string(m_isAnimal);
+    chaine+=" ";
+    chaine+=to_string(m_rythme_croissance);
     return chaine;
 }
 int Sommet::utilise()
@@ -131,7 +134,7 @@ void Sommet::dynamique_pop(float k,float l)
     if(valeur>100){valeur=100;}
     if(valeur<0){valeur=0;}
     m_regle.set_value(valeur);
-    if(k==0&&l==1)
+    if(k==0&&l==0)
     {
         m_regle.set_value(0);
     }
@@ -140,7 +143,6 @@ else{m_regle.set_value(m_popp+m_popp*m_rythme_croissance-l);}
 }
 void Sommet::set_couleur(int i)
 {
-    cout<<i<<endl;
     switch(i)
     {
     case 0:m_box.set_bg_color(BLANCBLEU);break;
@@ -148,7 +150,7 @@ void Sommet::set_couleur(int i)
     case 2:m_box.set_bg_color(JAUNE);break;
     case 3:m_box.set_bg_color(ROUGE);break;
     case 4:m_box.set_bg_color(VIOLET);break;
-    case 5:m_box.set_bg_color(ROUGE);break;
+    case 5:m_box.set_bg_color(MARRONCLAIR);break;
     case 6:m_box.set_bg_color(VIOLETCLAIR);break;
     case 7:m_box.set_bg_color(ORANGE);break;
     case 8:m_box.set_bg_color(BLEU);break;
