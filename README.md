@@ -1,2 +1,3 @@
-# ProjetS2
-Le Projet, oui
+# Projet-SEM2
+Un projet, oui.
+Un projet vraiment?

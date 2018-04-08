@@ -259,7 +259,7 @@
 	"grman/grman.h"
 	<iostream>
 
-1522863962 source:c:\users\david\projet-sem2\graphe.cpp
+1522865215 source:c:\users\david\projet-sem2\graphe.cpp
 	"Graphe.h"
 
 1522863475 c:\users\david\projet-sem2\graphe.h
@@ -296,6 +296,370 @@
 	<fstream>
 
 1522787204 source:c:\users\david\projet-sem2\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1522865835 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\arete.cpp
+	"Arete.h"
+
+1522865835 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522797827 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522797827 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\grman_couleurs.h
+
+1522797827 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\coords.h
+	<cmath>
+
+1522863021 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522865835 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\sommet.h
+	"grman/grman.h"
+	<iostream>
+
+1522868080 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\graphe.cpp
+	"Graphe.h"
+
+1522865835 c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522797827 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\coords.cpp
+	"coords.h"
+
+1522797827 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522864685 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\grman\widget.cpp
+	"widget.h"
+
+1522862752 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1522868100 source:c:\users\quentin\desktop\leprojettruc\projet-sem2-develop\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1523019501 source:c:\users\david\projets2\arete.cpp
+	"Arete.h"
+
+1522979171 c:\users\david\projets2\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522874694 c:\users\david\projets2\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522874694 c:\users\david\projets2\grman\grman_couleurs.h
+
+1522874694 c:\users\david\projets2\grman\coords.h
+	<cmath>
+
+1522939542 c:\users\david\projets2\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523023617 c:\users\david\projets2\sommet.h
+	"grman/grman.h"
+	<iostream>
+	<vector>
+
+1523050406 source:c:\users\david\projets2\graphe.cpp
+	"Graphe.h"
+
+1523026116 c:\users\david\projets2\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522874694 source:c:\users\david\projets2\grman\coords.cpp
+	"coords.h"
+
+1522874694 source:c:\users\david\projets2\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522940551 source:c:\users\david\projets2\grman\widget.cpp
+	"widget.h"
+
+1522874694 source:c:\users\david\projets2\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1523026858 source:c:\users\david\projets2\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1523019501 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\arete.cpp
+	"Arete.h"
+
+1522979171 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1522874694 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522874694 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\grman_couleurs.h
+
+1522874694 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\coords.h
+	<cmath>
+
+1522939542 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523023617 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\sommet.h
+	"grman/grman.h"
+	<iostream>
+	<vector>
+
+1523026134 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\graphe.cpp
+	"Graphe.h"
+
+1523026116 c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1522874694 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\coords.cpp
+	"coords.h"
+
+1522874694 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522940551 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\grman\widget.cpp
+	"widget.h"
+
+1522874694 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1523026858 source:c:\users\quentin\desktop\projet info animaux test\projets2-develop\projets2-develop\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1523087640 source:c:\users\quentin\desktop\projet 0704\projets2-develop\arete.cpp
+	"Arete.h"
+
+1523051479 c:\users\quentin\desktop\projet 0704\projets2-develop\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1523051479 c:\users\quentin\desktop\projet 0704\projets2-develop\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523051479 c:\users\quentin\desktop\projet 0704\projets2-develop\grman\grman_couleurs.h
+
+1523051479 c:\users\quentin\desktop\projet 0704\projets2-develop\grman\coords.h
+	<cmath>
+
+1523051479 c:\users\quentin\desktop\projet 0704\projets2-develop\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523088052 c:\users\quentin\desktop\projet 0704\projets2-develop\sommet.h
+	"grman/grman.h"
+	<iostream>
+	<vector>
+
+1523088180 source:c:\users\quentin\desktop\projet 0704\projets2-develop\graphe.cpp
+	"Graphe.h"
+
+1523051479 c:\users\quentin\desktop\projet 0704\projets2-develop\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1523051479 source:c:\users\quentin\desktop\projet 0704\projets2-develop\grman\coords.cpp
+	"coords.h"
+
+1523051479 source:c:\users\quentin\desktop\projet 0704\projets2-develop\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523051479 source:c:\users\quentin\desktop\projet 0704\projets2-develop\grman\widget.cpp
+	"widget.h"
+
+1523051479 source:c:\users\quentin\desktop\projet 0704\projets2-develop\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1523088169 source:c:\users\quentin\desktop\projet 0704\projets2-develop\sommet.cpp
+	"Sommet.h"
+	"string"
+
+1523147248 source:d:\projet info theorie des graphes\projets2-develop\arete.cpp
+	"Arete.h"
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\arete.h
+	"grman/grman.h"
+	"vector"
+	"Sommet.h"
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\grman\grman_couleurs.h
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\grman\coords.h
+	<cmath>
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\sommet.h
+	"grman/grman.h"
+	<iostream>
+	<vector>
+
+1523056166 source:d:\projet info theorie des graphes\projets2-develop\graphe.cpp
+	"Graphe.h"
+
+1523056166 d:\projet info theorie des graphes\projets2-develop\graphe.h
+	"Sommet.h"
+	"vector"
+	<fstream>
+	<sstream>
+	"Arete.h"
+
+1523056166 source:d:\projet info theorie des graphes\projets2-develop\grman\coords.cpp
+	"coords.h"
+
+1523056166 source:d:\projet info theorie des graphes\projets2-develop\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523056166 source:d:\projet info theorie des graphes\projets2-develop\grman\widget.cpp
+	"widget.h"
+
+1523056166 source:d:\projet info theorie des graphes\projets2-develop\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"Graphe.h"
+	<fstream>
+
+1523145083 source:d:\projet info theorie des graphes\projets2-develop\sommet.cpp
 	"Sommet.h"
 	"string"
 

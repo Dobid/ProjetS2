@@ -404,7 +404,223 @@ void WidgetEdge::draw()
     }
 
 }
+/***************************************************
+                    Clavier
+****************************************************/
+void WidgetClavier::initialiser(int x, int y)
+{
+    m_bloque=0;
+    this->add_child(box);
+    box.add_child(text);
+    box.add_child(curseur);
+    text.set_message(chaine);
+    curseur.set_message("I");
+    text.set_frame(20,5,100,10);
+    curseur.set_frame(20+chaine.size(),5,100,10);
+    box.set_frame(x,y,200,20);
+    box.set_bg_color(VERT);
+}
+void WidgetClavier::draw()
+{
+    m_curseur++;
+    if(m_curseur>20)
+    {
+        curseur.set_frame(20+chaine.size()*8,5,100,10);
+        curseur.set_message("I");
+    }
+    else
+    {
+        curseur.set_message("");
+    }
+    if(m_curseur==50)
+    {
+        m_curseur=0;
+    }
+    text.set_message(chaine);
+    if(m_bloque!=1)
+    {
+        if ( key[KEY_A] )
+        {
+            chaine+='Q';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_B] )
+        {
+            chaine+='B';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_C] )
+        {
+            chaine+='C';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_D] )
+        {
+            chaine+='D';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_E] )
+        {
+            chaine+='E';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_F] )
+        {
+            chaine+='F';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_G] )
+        {
+            chaine+='G';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_H] )
+        {
+            chaine+='H';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_I] )
+        {
+            chaine+='I';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_J] )
+        {
+            chaine+='J';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_K] )
+        {
+            chaine+='K';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_L] )
+        {
+            chaine+='L';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_SEMICOLON] )
+        {
+            chaine+='M';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_N] )
+        {
+            chaine+='N';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_O] )
+        {
+            chaine+='O';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_P] )
+        {
+            chaine+='P';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_Q] )
+        {
+            chaine+='A';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_R] )
+        {
+            chaine+='R';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_S] )
+        {
+            chaine+='S';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_T] )
+        {
+            chaine+='T';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_U] )
+        {
+            chaine+='U';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_V] )
+        {
+            chaine+='V';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_W] )
+        {
+            chaine+='Z';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_X] )
+        {
+            chaine+='X';
+            prec.push_back(chaine);
+            rest(150);
+        }
+       if ( key[KEY_Y] )
+        {
+            chaine+='Y';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if ( key[KEY_Z] )
+        {
+            chaine+='W';
+            prec.push_back(chaine);
+            rest(150);
+        }
+        if(key[KEY_ENTER])
+        {
+            m_bloque=1;
+        }
+        if(key[KEY_DEL])
+           {
+            if(prec.size()>=1)
+            {
+                prec.erase(prec.end());
+                chaine=prec[prec.size()];
+            }
+            else
+            {
+                chaine="";
+                prec.clear();
+            }
 
-
-
+            rest(150);
+           }
+    }
+}
+std::string WidgetClavier::recup_chaine()
+{
+    if(m_bloque==1)
+        return chaine;
+    else
+        return "_";
+}
 }
