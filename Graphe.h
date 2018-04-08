@@ -21,7 +21,7 @@ class Graphe
         int**toutesLesComposantesFortementConnexes(int** adjacence,int ordre);
         int* uneComposanteFortementConnexe(int** adjacence,int ordre,int s);
         int* k_connexe(int**adjacence,int ordre);
-        void k_parmi_n(int combinaisons[200][10],int n,int k);
+        void k_parmi_n(int combinaisons[2000][100],int n,int k);
         int factoriel(int lol);
         int get_sauvegarde(){return m_sauvegarde;}
 

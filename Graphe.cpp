@@ -565,9 +565,9 @@ int* Graphe::uneComposanteFortementConnexe(int** adjacence,int ordre,int s)
 }
 int* Graphe::k_connexe(int** adj,int ordre)
 {
-    int combinaisons[200][10];int vrai;int nombre=0;int i_reel;int j_reel;
+    int combinaisons[2000][100];int vrai;int nombre=0;int i_reel;int j_reel;
     int** matrice={0};
-    int stock[300];
+    int stock[3000];
     int curseur=0;
     int*resulat;
     if(!connexe(adj,ordre))
@@ -684,7 +684,7 @@ bool Graphe::connexe(int** adj,int ordre)
             return false;
     }
 //source:http://www.commentcamarche.net/forum/affich-4567474-algo-affichage-combinaison-de-p-elemt-parmi-n
-void Graphe::k_parmi_n(int combinaisons[200][10],int n,int k)
+void Graphe::k_parmi_n(int combinaisons[2000][100],int n,int k)
 {
 int comb[40] = {0};
 int i = 0;int m=0;
