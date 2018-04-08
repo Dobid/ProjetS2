@@ -151,7 +151,7 @@ void Sommet::set_couleur(int i)
     case 2:m_box.set_bg_color(JAUNE);break;
     case 3:m_box.set_bg_color(ROUGE);break;
     case 4:m_box.set_bg_color(VIOLET);break;
-    case 5:m_box.set_bg_color(ROUGE);break;
+    case 5:m_box.set_bg_color(MARRONCLAIR);break;
     case 6:m_box.set_bg_color(VIOLETCLAIR);break;
     case 7:m_box.set_bg_color(ORANGE);break;
     case 8:m_box.set_bg_color(BLEU);break;

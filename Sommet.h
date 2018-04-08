@@ -17,6 +17,10 @@ class Sommet
         void set_couleur(int i);
         int get_connexe(){return m_connexe;}
         void set_connexe(int connexe){m_connexe=connexe;}
+        std::string get_nom(){return m_nom_animal;}
+        std::vector<int> m_historique;
+        void set_historique(){m_historique.push_back(m_popp);}
+        std::vector<int> get_historique(){return m_historique;}
         std::string save();
 
 

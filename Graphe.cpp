@@ -32,6 +32,8 @@ Graphe::Graphe(std::string fichier)
     m_interface_fond.add_child(m_structurel);
     m_bouton_start.add_child(m_start_image);
     m_start_image.set_pic_name("lecture.jpg");
+    m_interface_fond.add_child(m_graphique_bouton);
+    m_graphique_bouton.set_frame(780,5,88,78);
 
     //m_bouton_sauvegarder.set_bg_color(FUCHSIA);
 
@@ -67,9 +69,97 @@ void Graphe::Charger_Graphe(std::string fichier)
 }
 void Graphe::update()
 {
-    int z=0;int lolilol=0;int changement=0;
+    int z=0;int lolilol=0;int changement=0;std::vector<int> historique;
+    if(m_graphique_bouton.clicked())
+    {
+        m_graphe_fenetre.push_back(new grman::WidgetBox);
+        m_graphe_bouton.push_back(new grman::WidgetButton);
+        m_legende1.push_back(new grman::WidgetText);
+        m_legende2.push_back(new grman::WidgetText);
+        m_interface_fond.add_child(*m_graphe_fenetre[y]);
+        m_graphe_fenetre[y]->add_child(*m_legende1[y]);
+        m_graphe_fenetre[y]->add_child(*m_legende2[y]);
+        m_graphe_fenetre[y]->set_bg_color(BLEUCLAIR);
+        m_graphe_fenetre[y]->set_moveable();
+        m_graphe_fenetre[y]->add_child(*m_graphe_bouton[y]);
+        m_graphe_bouton[y]->set_frame(479,1,20,20);
+        m_legende1[y]->set_frame(5,5,20,20);
+        m_legende1[y]->set_text_color(ROUGE);
+        m_legende2[y]->set_text_color(BLEU);
+        m_legende2[y]->set_frame(5,15,20,20);
+        m_graphe_bouton[y]->set_bg_color(ROUGE);
+        m_graphe_fenetre[y]->set_frame(520,350,500,300);
+        for(int i=0;i<(signed)Sommets.size();i++)
+        {
+            if(Sommets[i]->selectionne()==2&&Sommets[i]->utilise())
+            {
+                historique=Sommets[i]->get_historique();
+                if(historique.size()!=0)
+                {
+                    m_graphe_point.clear();
+                    m_segment.clear();
+                    m_legende1[y]->set_message(Sommets[i]->get_nom());
+                    for(int j=0;j<historique.size();j++)
+                    {
+                        m_graphe_point.push_back(new grman::WidgetCheckBox);
+                        m_graphe_fenetre[y]->add_child(*m_graphe_point[j]);
+                        m_graphe_point[j]->set_frame((500*j)/historique.size(),300-(historique[j]*3),5,5);
+                        if(j!=0)
+                        {
+                            m_segment.push_back(new grman::WidgetEdge);
+                            m_graphe_fenetre[y]->add_child(*m_segment[j-1]);
+                            m_segment[j-1]->reset_no_items();
+                            m_segment[j-1]->attach_to(*m_graphe_point[j]);
+                            m_segment[j-1]->attach_from(*m_graphe_point[j-1]);
+                            m_segment[j-1]->set_m_color(ROUGE);
+                        }
+                    }
+                }
+            }
+
+            if(Sommets[i]->selectionne()==1&&Sommets[i]->utilise())
+            {
+                historique=Sommets[i]->get_historique();
+                if(historique.size()!=0)
+                {
+                    m_graphe_point.clear();
+                    m_segment.clear();
+                    m_legende2[y]->set_message(Sommets[i]->get_nom());
+                    for(int j=0;j<historique.size();j++)
+                    {
+                        m_graphe_point.push_back(new grman::WidgetCheckBox);
+                        m_graphe_fenetre[y]->add_child(*m_graphe_point[j]);
+                        m_graphe_point[j]->set_frame((500*j)/historique.size(),300-(historique[j]*3),5,5);
+                        if(j!=0)
+                        {
+                            m_segment.push_back(new grman::WidgetEdge);
+                            m_graphe_fenetre[y]->add_child(*m_segment[j-1]);
+                            m_segment[j-1]->reset_no_items();
+                            m_segment[j-1]->attach_to(*m_graphe_point[j]);
+                            m_segment[j-1]->attach_from(*m_graphe_point[j-1]);
+                            m_segment[j-1]->set_m_color(BLEU);
+                        }
+                    }
+                }
+            }
+        }
+        y++;
+    }
     if(m_structurel.clicked())
     {
+        int itsok=0;
+        for(int i=0;i<Sommets.size();i++)
+        {
+            if(!Sommets[i]->utilise())
+                itsok=1;
+        }
+        if(itsok==1)
+        {
+            allegro_message("Veuillez sauvegarder avant de faire cette action");
+        }
+        else
+        {
+        int* rep;
         m_tab_adjacence=new int*[Sommets.size()];
         for(int i=0;i<(signed)Sommets.size();i++)
         {
@@ -95,6 +185,14 @@ void Graphe::update()
             }
             cout<<endl;
         }
+        rep=k_connexe(m_tab_adjacence,Sommets.size());
+        cout<<"c'est un"<<rep[0]<<"uplet"<<endl;
+        for(int i=0;i<rep[1];i++)
+        {
+            cout<<rep[i]+2;
+            cout<<Sommets[i]->population();
+        }
+        cout<<"stop";
         result=toutesLesComposantesFortementConnexes(m_tab_adjacence,Sommets.size());
         m_sous_graphe.push_back(new grman::WidgetBox);
         m_sous_graphe_bouton.push_back(new grman::WidgetButton);
@@ -102,7 +200,7 @@ void Graphe::update()
         m_sous_graphe[x]->set_bg_color(BLEUCLAIR);
         m_sous_graphe[x]->set_moveable();
         m_sous_graphe[x]->add_child(*m_sous_graphe_bouton[x]);
-        m_sous_graphe[x]->set_frame(745578451445145520,350,500,300);
+        m_sous_graphe[x]->set_frame(7455,350,500,300);
         m_sous_graphe_bouton[x]->set_frame(479,1,20,20);
         m_sous_graphe_bouton[x]->set_bg_color(ROUGE);
         m_sous_graphe[x]->set_frame(520,350,500,300);
@@ -160,7 +258,7 @@ void Graphe::update()
     case 19:m_les_sommets_sous_graphe[i].set_bg_color(VIOLETSOMBRE);break;
     }
             }
-            for(int i=0;i<Aretes.size();i++)
+            for(int i=0;i<(signed)Aretes.size();i++)
             {
                 if(Sommets[Aretes[i]->sommet1()]->get_connexe()!=Sommets[Aretes[i]->sommet2()]->get_connexe())
                 {
@@ -168,7 +266,7 @@ void Graphe::update()
                     m_lien_sous_graphe.push_back(Sommets[Aretes[i]->sommet2()]->get_connexe());
                 }
                 m_lien_sous_graphe_edge=new grman::WidgetEdge[m_lien_sous_graphe.size()/2];
-            for(int i=0;i<m_lien_sous_graphe.size()/2;i++)
+            for(int i=0;i<(signed)m_lien_sous_graphe.size()/2;i++)
             {
                 m_sous_graphe[x]->add_child(m_lien_sous_graphe_edge[i]);
                 m_lien_sous_graphe_edge[i].reset_arrow_with_bullet();
@@ -179,15 +277,24 @@ void Graphe::update()
 
             cout<<endl;
         x++;
+
         rest(500);
+    }
     }
     m_interface_fond.update();
     for(int i=0;i<x;i++)
         if(x!=0)
             if(m_sous_graphe_bouton[i]->clicked())
             {
-                m_sous_graphe[i]->set_frame(745578451445145520,350,500,300);
+                m_sous_graphe[i]->set_frame(7450,350,500,300);
             }
+    for(int i=0;i<y;i++)
+        if(y!=0)
+            if(m_graphe_bouton[i]->clicked())
+            {
+                m_graphe_fenetre[i]->set_frame(7450,350,500,300);
+            }
+
     if(m_bouton_add_ressource.clicked())
     {
         m_isAnimal=false;
@@ -251,10 +358,19 @@ void Graphe::update()
     {
         temps=0;
         la_vie_suit_son_cours();
+        for(int i=0;i<Sommets.size();i++)
+        {
+            Sommets[i]->set_historique();
+        }
     }
+    for(int i=0;i<x;i++)
+    m_sous_graphe[i]->update();
+    for(int i=0;i<y;i++)
+        m_graphe_fenetre[i]->update();
 }
 void Graphe::Sauver_Graphe()
 {
+    m_sauvegarde=1;
     vector<int> sommets_non_utilise;
     int nbr_sommets=0,nbr_aretes=0;
     for(int i=0;i<(signed)Sommets.size();i++)
@@ -445,4 +561,167 @@ int* Graphe::uneComposanteFortementConnexe(int** adjacence,int ordre,int s)
         c[x]=c1[x]&c2[x];
     }
     return c;
+}
+int* Graphe::k_connexe(int** adj,int ordre)
+{
+    int combinaisons[200][10];int vrai;int nombre=0;int i_reel;int j_reel;
+    int** matrice;
+    int stock[300];
+    int curseur=0;
+    int*resulat;
+    if(!connexe(adj,ordre))
+    {
+        cout<<"le graphe n'est pas connexe";
+        resulat=new int;
+        resulat[0]=0;
+    }
+    else
+    {
+        vrai=0;
+        while(vrai==0)
+        {
+            nombre++;
+            k_parmi_n(combinaisons,ordre,nombre);
+            for(int i=0;i<ordre-nombre;i++)
+            {
+                matrice=new int*[ordre-nombre];
+                for(int j=0;j<ordre-nombre;j++)
+                {
+                    matrice[j]=new int[ordre-nombre];
+                }
+            }
+            for(int k=0;k<(factoriel(ordre)/(factoriel(nombre)*(factoriel(ordre-nombre))));k++)
+            {
+                for(int i=0;i<ordre;i++)
+                {
+                    for(int j=0;j<ordre;j++)
+                    {
+                        i_reel=i;
+                        j_reel=j;
+                        for(int l=0;l<nombre;l++)
+                        {
+                            if(combinaisons[k][l]<=i)
+                            {
+                                i_reel--;
+                            }
+                            if(combinaisons[k][l]<=j)
+                            {
+                                j_reel--;
+                            }
+                            if(i_reel<ordre-nombre&&j_reel<ordre-nombre)
+                                matrice[i_reel][j_reel]=adj[i][j];
+
+                        }
+                    }
+                }
+                if(!connexe(matrice,ordre-nombre))
+                {
+                    vrai=1;
+                    for(int p=0;p<nombre;p++)
+                    {
+                        stock[curseur*(nombre-1)+p]=combinaisons[k][nombre];
+                    }
+                    curseur++;
+
+                }
+            }
+            delete matrice;
+        }
+        resulat=new int [2+curseur*nombre];
+        resulat[0]=nombre;
+        resulat[1]=curseur;
+        for(int i=0;i<curseur*nombre;i++)
+        {
+            resulat[i+2]=stock[i];
+        }
+    }
+    return resulat;
+}
+//source rendu tp 2 Mongault Quentin Da Costa Soares Romain
+bool Graphe::connexe(int** adj,int ordre)
+{
+    int utilise=0;
+    std::vector<int> sommets;
+    int* marquage;int fait=0;
+    marquage=new int[ordre];
+    for(int i=0;i<ordre;i++)
+    {
+        marquage[i]=0;
+    }
+    for(int i=0;i<ordre;i++)
+    {
+        for(int j=0;j<ordre;j++)
+        {
+            if(adj[i][j]==1&& fait==0)
+            {
+                fait=i;
+            }
+        }
+    }
+
+            sommets.push_back(fait);
+            marquage[fait]=1;
+            int changement=1;
+            while(changement!=0)
+            {
+                changement=0;
+                for(int i=0;i<sommets.size();i++)
+                {
+                    for(int j=0;j<ordre;j++)
+                    {
+                        if(marquage[j]!=1&&(adj[sommets[i]][j]==1||adj[j][sommets[i]]==1))
+                        {
+                            marquage[j]=1;
+                            sommets.push_back(j);
+                            changement=1;
+                        }
+                    }
+                }
+            }
+
+        if(sommets.size()!=0)
+        {
+            std::cout<<"Une composante connexe est ";
+            for(int i=0;i<sommets.size();i++)
+            {
+                std::cout<<sommets[i]<<" ";
+
+            }
+        std::cout<<std::endl;
+        }
+        if(ordre==sommets.size())
+            return true;
+        else
+            return false;
+    }
+//source:http://www.commentcamarche.net/forum/affich-4567474-algo-affichage-combinaison-de-p-elemt-parmi-n
+void Graphe::k_parmi_n(int combinaisons[200][10],int n,int k)
+{
+int comb[40] = {0};
+int i = 0;int m=0;
+while (i >= 0) {
+if (comb[i] < n + i - k + 1)
+    {
+        comb[i]++;
+        if (i == k - 1)
+        {
+            for (int j = 0; j < k; j++)
+            {
+                combinaisons[m][j]= comb[j];
+            }
+            m++;
+        }
+        else { comb[++i] = comb[i - 1]; }
+    }
+    else i--; }
+}
+int Graphe::factoriel(int lol)
+{
+    int resultat=lol;
+    while(lol!=1)
+    {
+        lol--;
+        resultat=resultat*lol;
+    }
+    return resultat;
 }
